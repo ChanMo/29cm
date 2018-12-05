@@ -11,8 +11,8 @@
         <navigator url="{{item.link}}">
           <image src="{{item.image}}" style="width:100%;height:450px;" />
           <view style="position:absolute;bottom:20%;left:50%;transform:translate(-50%, 0);">
-            <view style="font-size:40px;color:white;">初秋爆款</view>
-            <view style="font-size:24px;color:rgba(255,255,255,0.8)">下单立减200</view>
+            <view style="font-size:40px;color:white;">{{item.title}}</view>
+            <view style="text-align:center;font-size:24px;color:rgba(255,255,255,0.8)">{{item.subtitle}}</view>
           </view>
         </navigator>
       </swiper-item>
@@ -42,10 +42,10 @@
     <scroll-view scroll-x>
     <view style="display:flex;flex-grow:nogrow">
       <navigator wx:for="{{discount}}" 
-        url="/pages/commodity/commodity"
+        url="/pages/commodity/commodity?id={{item.id}}"
         wx:key="{{index}}" 
         style="width:200px;margin-right:15px;">
-        <image src="{{item.image}}" style="width:200px;height:200px;" />
+        <image src="{{item.cover}}" style="width:200px;height:200px;" />
         <view style="font-size:14px;">{{item.name}}</view>
         <view style="font-size:14px;color:red;">{{item.price}}</view>
       </navigator>
