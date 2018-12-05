@@ -1,0 +1,9 @@
+<scroll-view>
+  <navigator wx:for="{{data}}" wx:key="{{index}}" url="/pages/article/article?id={{item.id}}">
+    <image src="{{item.cover}}" style="width:100%;height:60vw" />
+    <view style="padding:20px;box-sizing:border-box;">
+      <view style="margin-bottom:5px;">{{item.title}}</view>
+      <view style="font-size:14px;color:grey;">{{item.created}}</view>
+    </view>
+  </navigator>
+</scroll-view>
