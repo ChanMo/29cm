@@ -1,0 +1,5 @@
+ <scroll-view style="padding:0 15px;box-sizing:border-box;">
+  <view style="margin:15px 0 5px;font-size:20px;font-weight:bold;">{{data.title}}</view>
+  <view style="font-size:14px;color:grey;margin-bottom:10px;">{{data.created}}</view>
+  <rich-text nodes="{{content}}" style="margin-bottom:15px;"></rich-text>
+</scroll-view>
