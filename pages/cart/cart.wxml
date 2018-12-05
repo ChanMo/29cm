@@ -1,0 +1,16 @@
+<scroll-view>
+  <view wx:for="{{data}}" wx:key="{{index}}"
+    style="display:flex;padding:15px;box-sizing:border-box;">
+    <image src="{{item.commodity.cover}}" 
+      style="min-width:120px;width:120px;height:120px;" />
+    <view style="flex-grow:1;padding-left:15px;">
+      <view style="font-size:14px;">{{item.commodity.name}}</view>
+      <view style="font-size:16px;font-weight:bold;color:#f44336">{{item.commodity.price}}</view>
+      <view>{{item.count}}</view>
+    </view>
+  </view>
+</scroll-view>
+<view style="position:fixed;bottom:0;left:0;width:100%;padding:5px 25px;box-sizing:border-box;height:64px;background:black;display:flex;justify-content:space-between;align-items:center;">
+  <text style="color:#f44336;">{{price}}</text>
+  <text bindtap="onBuy" style="color:#f44336;">去结算</text>
+</view>
