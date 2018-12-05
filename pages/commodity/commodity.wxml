@@ -1,5 +1,5 @@
 <scroll-view style="margin-bottom:60px;">
-  <image src="{{commodity.image}}" style="width:100vw;height:100vw;" />
+  <image src="{{commodity.cover}}" style="width:100vw;height:100vw;" />
   <view style="padding:0 20px;box-sizing:border-box;">
     <view style="padding:20px 0;border-bottom:1px solid lightgrey;margin-bottom:15px;">
       <view style="font-size:16px;font-weight:400">{{commodity.name}}</view>
@@ -7,7 +7,7 @@
     </view>
 
     <!-- 图文详情 -->
-    <rich-text nodes="{{commodity.content}}"></rich-text>
+    <rich-text nodes="{{content}}"></rich-text>
   </view>
 
   <!-- 品牌 -->

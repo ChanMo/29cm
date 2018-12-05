@@ -2,15 +2,26 @@ const app = getApp()
 
 Page({
   data: {
-    commodity: null
+    id: null, // 商品ID
+    commodity: null,
+    content: null, // 图文详情
   },
   onLoad: function(options) {
+    this.setData({id: options.id})
     this.fetchCommodity()
     this.fetchRank()
   },
   fetchCommodity: function() {
-    const data = {image:'https://gd4.alicdn.com/imgextra/i4/704298669/O1CN01GRTBvM2DuRyAFerUz_!!704298669.jpg',name:'毛衣女2018秋冬新款长袖套头百搭韩版半高领针织打底衫',price:3000.00,content:'<img src="https://img.alicdn.com/imgextra/i4/704298669/O1CN01ZMm6Au2DuRyFjx7RE_!!704298669.jpg" style="width:100%;" align="absmiddle">'}
-    this.setData({commodity:data})
+    const self = this
+    let url = app.globalData.domain + 'commodity/' + this.data.id + '/'
+    wx.request({url, success:(res)=>{
+      let content = res.data.content.replace(new RegExp('style=', 'g'), 'style2=')
+      content = content.replace(new RegExp('<img ', 'g'), '<img style="width:100% !important;height:100% !important;" ')
+      self.setData({
+        commodity: res.data,
+        content: content
+      })
+    }})
   },
   fetchRank: function() {
     const data = [
