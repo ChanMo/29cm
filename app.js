@@ -1,15 +1,23 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    const self = this
 
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let url = self.globalData.domain + 'wxa/login/'
+        wx.request({
+          url: url,
+          method: 'POST',
+          data: {code:res.code, p:0},
+          success:res=>{
+            wx.setStorageSync('token', res.data.token)
+            self.globalData.token = res.data.token
+            self.globalData.uid = res.data.id
+          }
+        })
       }
     })
     // 获取用户信息
@@ -34,6 +42,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    domain: 'http://maybe.findchen.com/'
   }
 })
