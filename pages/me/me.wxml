@@ -1,0 +1,28 @@
+<scroll-view>
+  <view style="padding:20px;box-sizing:border-box;display:flex;align-items:center;background:black;">
+    <open-data 
+      type="userAvatarUrl"
+      style="display:inline-block;width:63px;height:64px;border-radius:64px;overflow:hidden;margin-right:20px;" />
+    <open-data type="userNickName" style="color:white;border-bottom:2px solid white;" />
+  </view>
+
+  <view  style="padding:0 25px;box-sizing:border-box;">
+    <view style="border-bottom:3px solid black;padding:15px 0;">
+      <view style="font-size:22px;font-weight:bold;margin-bottom:10px;">订单</view>
+      <view>
+        <view style="font-size:13px;">待付款</view>
+        <view style="font-size:13px;">待发货</view>
+        <view style="font-size:13px;">全部</view>
+      </view>
+    </view>
+    <view style="border-bottom:3px solid black;padding:15px 0">
+      <view style="font-size:22px;font-weight:bold;margin-bottom:10px;">其他</view>
+      <view wx:for="{{link}}" wx:key="{{index}}"
+        style="font-size:13px;">{{item.title}}</view>
+    </view>
+    <view style="padding:15px 0;">
+      <view style="font-size:13px;">电话: 0531-88888888</view>
+      <view style="font-size:13px;">微信: orange1991</view>
+    </view>
+  </view>
+</scroll-view>
