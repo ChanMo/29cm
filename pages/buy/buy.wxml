@@ -1,0 +1,41 @@
+<scroll-view style="padding:20px;box-sizing:border-box;">
+  <view style="border-bottom:2px solid black;margin-bottom:20px;">
+    <view style="margin-bottom:10px;font-weight:bold">商品</view>
+    <view wx:for="{{commodity}}" wx:key="{{index}}"
+      style="display:flex;justify-content:space-between;margin-bottom:10px;border-bottom:1px dashed lightgrey;padding:10px 0;{{index==commodity.length-1 && 'border-bottom-width:0'}}">
+      <view style="box-sizing:border-box;padding-right:15px;">
+        <view style="font-size:14px;">{{item.name}}</view>
+        <view style="font-size:14px;">x2</view>
+        <view style="color:red;font-size:14px;">{{item.price}}</view>
+      </view>
+      <image 
+        src="{{item.image}}" 
+        style="width:20vmin;height:20vmin;min-width:20vmin" />
+    </view>
+  </view>
+
+  <view style="border-bottom:2px solid black;margin-bottom:20px;">
+    <view style="margin-bottom:10px;font-weight:bold">收货地址</view>
+    <view style="margin-bottom:20px;">
+      <view style="font-size:14px;">{{address.name}} {{address.mobile}}</view>
+      <view style="font-size:14px;">{{address.street}}</view>
+    </view>
+  </view>
+
+  <view style="margin-bottom:20px;">
+    <view style="margin-bottom:10px;font-weight:bold">总计</view>
+    <view style="margin-bottom:5px;display:flex;justify-content:space-between;">
+      <text style="font-size:14px;">商品总价</text> 
+      <text style="font-size:14px;">1200.00</text>
+    </view>
+    <view style="margin-bottom:5px;display:flex;justify-content:space-between;">
+      <text style="font-size:14px;">运费</text> 
+      <text style="font-size:14px;">10.00</text>
+    </view>
+    <view style="margin-bottom:10px;padding-top:5px;border-top:1px dashed lightgrey;text-align:right;">
+      <text style="font-size:20px;color:red;font-weight:bold;">1210.00</text>
+    </view>
+  </view>
+
+</scroll-view>
+<view style="position:fixed;bottom:0;left:0;width:100%;height:60px;line-height:60px;text-align:center;background:black;color:white;font-size:14px;">下 单</view>
