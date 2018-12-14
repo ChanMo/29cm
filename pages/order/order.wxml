@@ -1,0 +1,26 @@
+<scroll-view>
+  <view wx:for="{{data}}" wx:key="{{index}}"
+    style="padding:10px;">
+    <view style="margin-bottom:5px;">
+      <text style="color:grey;font-size:14px;">订单号: {{item.number}}</text>
+      <text style="float:right;font-size:14px;">未支付</text>
+    </view>
+    <navigator wx:for="{{item.item_set}}" wx:key="{{index}}"
+      style="display:flex;margin-bottom:5px;"
+      url="/pages/commodity/commodity?id={{item.commodity}}">
+      <image src="{{item.image}}" style="width:30vmin;min-width:30vmin;height:30vmin;margin-right:10px;" />
+      <view>
+        <view style="font-size:14px;">{{item.name}}</view>
+        <view style="font-size:20px;font-weight:bold;color:red;">{{item.price}}</view>
+        <view style="font-size:14px;">x{{item.count}}</view>
+      </view>
+    </navigator>
+
+    <!-- 操作 -->
+    <view style="text-align:right;">
+      <navigator style="font-size:12px;background:black;color:white;display:inline-block;padding:5px 20px;">支付</navigator>
+    </view>
+
+  </view>
+  <view style="padding:20px;text-align:center;font-size:20px;color:lightgrey;font-weight:bold;">- END -</view>
+</scroll-view>
