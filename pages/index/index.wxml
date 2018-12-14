@@ -53,4 +53,11 @@
   </scroll-view>
   </view>
 
+  <view style="padding-left:50px;box-sizing:border-box;margin-bottom:40px" >
+    <view style="font-size:24px;color:black;">分类</view>
+    <navigator wx:for="{{category}}" wx:key="{{index}}"
+      url="/pages/list/list?category={{item.id}}"
+      style="display:inline-block;margin:0 5px 5px 0;line-height:10px;font-size:14px;">{{item.name}}</navigator>
+  </view>
+
 </scroll-view>

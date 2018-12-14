@@ -6,12 +6,14 @@ Page({
   data: {
     banner: [],
     commodity: [],
-    discount: []
+    discount: [], // 优惠商品
+    category: [] // 商品分类
   },
   onLoad: function () {
     this.fetchBanner()
     this.fetchCommodity()
     this.fetchDiscount()
+    this.fetchCategory()
   },
 
   /**
@@ -40,5 +42,13 @@ Page({
   fetchDiscount: function() {
     let url = app.globalData.domain + 'commodity/'
     wx.request({url, success:(res)=>this.setData({discount:res.data.results})})
+  },
+
+  /**
+   * 获取分类
+   */
+  fetchCategory: function() {
+    let url = app.globalData.domain + 'commodity/category'
+    wx.request({url, success:res=>this.setData({category:res.data})})
   }
 })
