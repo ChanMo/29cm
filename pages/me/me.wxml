@@ -12,7 +12,8 @@
       <view>
         <view style="font-size:13px;">待付款</view>
         <view style="font-size:13px;">待发货</view>
-        <view style="font-size:13px;">全部</view>
+        <navigator url="/pages/order/order" 
+          style="font-size:13px;">全部</navigator>
       </view>
     </view>
     <view style="border-bottom:3px solid black;padding:15px 0">
