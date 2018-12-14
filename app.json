@@ -2,11 +2,13 @@
   "pages":[
     "pages/index/index",
     "pages/commodity/commodity",
+    "pages/list/list",
     "pages/buy/buy",
     "pages/cart/cart",
     "pages/me/me",
     "pages/blog/blog",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/order/order"
   ],
   "window":{
     "backgroundTextStyle":"dark",
