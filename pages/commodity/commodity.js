@@ -5,6 +5,8 @@ Page({
     id: null, // 商品ID
     commodity: null,
     content: null, // 图文详情
+    modal: false, // 弹出框状态
+    count: 1, // 选择商品数量
   },
   onLoad: function(options) {
     this.setData({id: options.id})
@@ -33,7 +35,89 @@ Page({
     this.setData({rank:data})
   },
 
+  /**
+   * 直接购买
+   */
   onBuy: function() {
-    wx.navigateTo({url:'/pages/buy/buy'})
+    this.setData({modal: false})
+    wx.navigateTo({url:`/pages/buy/buy?id=${this.data.id}&count=${this.data.count}`})
+  },
+
+  /**
+   * 加入购物车
+   */
+  onAddToCart: function() {
+    //wx.showLoading({mask:true})
+    const self = this
+    let url = app.globalData.domain + 'cart/'
+    let data = {
+      'commodity': this.data.id,
+      'count': 1,
+    }
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      header: {
+        'Authorization': 'Token ' + wx.getStorageSync('token')
+      },
+      success: res=>{
+        wx.showToast({title:'加入成功'})
+        self.setData({modal:false})
+      },
+      //complete: res=>wx.hideLoading()
+    })
+  },
+
+  /**
+   * 跳转购物车
+   */
+  onGoCart: function() {
+    wx.switchTab({url: '/pages/cart/cart'})
+  },
+
+  /**
+   * 打开modal
+   */
+  onToggleModal: function() {
+    this.setData({modal: !this.data.modal})
+  },
+
+  /**
+   * 转发
+   */
+  onShare: function() {
+    wx.showShareMenu({withShareTicket:true})
+  },
+
+  /**
+   * 转发事件
+   */
+  onShareAppMessage: function() {
+    return {
+      title: 'DOYOU.LIVE',
+      path: '/pages/commodity/commodity?id='+this.data.id
+    }
+  },
+
+  /**
+   * 数量增加
+   */
+  onIncrease: function() {
+    this.setData({count: this.data.count+1})
+  },
+
+  /**
+   * 数量减少
+   */
+  onDecrease: function(e) {
+    let count = this.data.count
+    if(count == 1) {
+      // 如果数量为1
+      return
+    }
+    count -= 1
+    this.setData({count: count})
   }
+
 })

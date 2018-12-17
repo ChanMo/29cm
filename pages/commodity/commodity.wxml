@@ -44,8 +44,40 @@
   </view>
 
 </scroll-view>
-<view style="position:fixed;bottom:0;left:0;width:100vw;height:60px;line-height:60px;background:black;padding:0 20px;box-sizing:border-box;">
-  <text 
-    bindtap="onBuy" 
-    style="float:right;color:red;font-weight:bold;font-size:18px;">BUY NOW</text>
+
+<!-- 底部操作 -->
+<view style="display:flex;position:fixed;bottom:0;left:0;width:100vw;height:60px;line-height:60px;background:black;padding:0 20px;box-sizing:border-box;align-items:center;justify-content:space-between;">
+  <view style="display:flex;align-items:center;">
+    <button open-type="share" plain="true" style="padding:0;border:none;display:inline-block;line-height:20px;height:20px;">
+      <image src="../../images/share.svg" bindtap="onShare"
+        style="width:20px;height:20px;display:inline-block;margin-right:15px;" />
+    </button>
+    <image src="../../images/shopping-cart.svg" bindtap="onGoCart"
+      style="width:20px;height:20px;display:inline-block;margin-right:15px;" />
+  </view>
+  <text bindtap="onToggleModal"
+    style="color:red;font-weight:bold;font-size:18px;">BUY NOW</text>
+</view>
+
+<!-- modal -->
+<view style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7)" wx:if="{{modal}}" bindtap="onToggleModal"></view>
+<view style="position:fixed;bottom:0;left:0;width:100%;height:auto;background:white;padding:10px;box-sizing:border-box;" wx:if="{{modal}}">
+  <view style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;box-sizing:border-box;">
+    <text style="font-size:14px;">数量:</text>
+    <!-- 数量加减 -->
+    <view style="border:1px solid grey;display:flex;align-items:center;width:100px;font-size:14px;height:26px;">
+      <view
+        bindtap="onDecrease"
+        style="width:26px;text-align:center;color:grey">-</view>
+      <view style="height:26px;line-height:26px;color:grey;flex-grow:1;text-align:center;border-left:1px solid grey;border-right:1px solid grey;">{{count}}</view>
+      <view style="width:26px;text-align:center;color:grey"
+        bindtap="onIncrease">+</view>
+    </view>
+  </view>
+  <view style="display:flex;margin-top:20px;">
+    <view style="flex-grow:1;border:1px solid lightgrey;text-align:center;padding:10px 0;box-sizing:border-box;font-size:14px;"
+      bindtap="onAddToCart">加入购物车</view>
+    <view style="flex-grow:1;border:1px solid black;background:black;color:white;text-align:center;padding:10px 0;box-sizing:border-box;font-size:14px;"
+      bindtap="onBuy">立即购买</view>
+  </view>
 </view>
