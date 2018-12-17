@@ -6,7 +6,12 @@
     <image src="{{item.cover}}" style="width:50vw;height:50vw;" />
     <view style="padding:10px;box-sizing:border-box;font-size:14px;">
       <view style="line-height:18px;min-height:36px;height:36px;overflow:hidden;">{{item.name}}</view>
-      <view style="color:red;font-size:18px;font-weight:bold;">{{item.price}}</view>
+      <view style="color:red;font-size:18px;font-weight:bold;">
+        <text wx:if="{{item.discount < 1}}"
+          style="font-size:16px;"
+          >[{{item.discount * 100}}%] </text>
+        <text>{{item.price}}</text>
+      </view>
     </view>
   </navigator>
 </scroll-view>
