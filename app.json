@@ -13,7 +13,8 @@
     "pages/page/page"
   ],
   "window":{
-    "backgroundTextStyle":"dark",
+    "backgroundColor": "#000000",
+    "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "DOYOU.LIVE",
     "navigationBarTextStyle":"white",
