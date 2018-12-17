@@ -8,13 +8,16 @@
     "pages/me/me",
     "pages/blog/blog",
     "pages/article/article",
-    "pages/order/order"
+    "pages/orders/orders",
+    "pages/order/order",
+    "pages/page/page"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "xma",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "DOYOU.LIVE",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
       "color": "#616161",
