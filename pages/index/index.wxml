@@ -8,7 +8,7 @@
     style="height:450px;margin-bottom:20px;">
     <block wx:for="{{banner}}" wx:key="{{index}}">
       <swiper-item>
-        <navigator url="{{item.link}}">
+        <navigator url="{{item.path}}">
           <image src="{{item.image}}" style="width:100%;height:450px;" />
           <view style="position:absolute;bottom:20%;left:50%;transform:translate(-50%, 0);">
             <view style="font-size:40px;color:white;">{{item.title}}</view>
@@ -47,7 +47,7 @@
         style="width:200px;margin-right:15px;">
         <image src="{{item.cover}}" style="width:200px;height:200px;" />
         <view style="font-size:14px;line-height:16px;height:32px;overflow:hidden;">{{item.name}}</view>
-        <view style="font-size:14px;color:red;">{{item.discount*100}}% {{item.price*item.discount}}</view>
+        <view style="font-size:14px;color:red;">[{{item.discount*100}}%] {{item.price*item.discount}}</view>
       </navigator>
     </view>
   </scroll-view>
