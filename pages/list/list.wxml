@@ -1,4 +1,4 @@
-<scroll-view>
+<scroll-view wx:if="{{data.length > 0}}">
   <navigator
     style="width:50%;min-width:50%;float:left;"
     wx:for="{{data}}" wx:key="{{index}}"
@@ -10,3 +10,33 @@
     </view>
   </navigator>
 </scroll-view>
+
+<!-- 如果没有商品 -->
+<view wx:else class="empty">
+  <view>没有商品</view>
+</view>
+
+<!-- menu -->
+<view bindtap="onToggleFilter" class="menu">
+  <image src="../../images/more-vertical.svg"
+    style="width:20px;height:20px;" />
+</view>
+
+<!-- 排序 -->
+<view wx:if="{{filterVisible}}" class="sortBox">
+  <view bindtap="onToggleFilter" class="sortBox__close">
+    <image src="../../images/x.svg" class="icon" />
+  </view>
+  <view class="sortBox__container">
+    <view bindtap="onSetSort" data-value="new"
+      class="{{sort == 'new' ? 'active' : ''}}">最新</view>
+    <view bindtap="onSetSort" data-value="hot" 
+      class="{{sort == 'hot' ? 'active' : ''}}">热门</view>
+    <view bindtap="onSetSort" data-value="priceAsc"
+      class="{{sort == 'priceAsc' ? 'active' : ''}}">
+      价格<image src="../../images/chevron-up.svg" class="icon" /></view>
+    <view bindtap="onSetSort" data-value="priceDesc"
+      class="{{sort == 'priceDesc' ? 'active' : ''}}">
+      价格<image src="../../images/chevron-down.svg" class="icon" /></view>
+  </view>
+</view>
