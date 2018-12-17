@@ -40,7 +40,7 @@ Page({
    * 获取优惠商品
    */
   fetchDiscount: function() {
-    let url = app.globalData.domain + 'commodity/'
+    let url = app.globalData.domain + 'commodity?discount=true'
     wx.request({url, success:(res)=>this.setData({discount:res.data.results})})
   },
 
@@ -50,5 +50,16 @@ Page({
   fetchCategory: function() {
     let url = app.globalData.domain + 'commodity/category'
     wx.request({url, success:res=>this.setData({category:res.data})})
-  }
+  },
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchBanner()
+    this.fetchCommodity()
+    this.fetchDiscount()
+    this.fetchCategory()
+    wx.stopPullDownRefresh()
+  },
 })
