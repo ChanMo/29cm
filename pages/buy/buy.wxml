@@ -6,7 +6,11 @@
       <view style="box-sizing:border-box;padding-right:15px;">
         <view style="font-size:14px;">{{item.commodity.name}}</view>
         <view style="font-size:14px;">x{{item.count}}</view>
-        <view style="color:red;font-size:14px;">{{item.commodity.price}}</view>
+        <view style="color:red;font-size:14px;">
+          <text wx:if="{{item.commodity.discount < 1}}"
+            >[{{item.commodity.discount * 100}}%] </text>
+          <text>{{item.commodity.price * item.commodity.discount}}</text>
+        </view>
       </view>
       <image 
         src="{{item.commodity.cover}}" 

@@ -91,7 +91,7 @@ Page({
    */
   makePrice: function() {
     let price = 0.00
-    this.data.commodity.map(item=>price += item.count * item.commodity.price)
+    this.data.commodity.map(item=>price += item.count * item.commodity.price * item.commodity.discount)
     this.setData({price: price.toFixed(2)})
   },
 
@@ -126,5 +126,6 @@ Page({
       success: res=>wx.showToast({title:'订单提交成功'}),
       complete: wx.hideLoading()
     })
-  }
+  },
+
 })

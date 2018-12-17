@@ -2,8 +2,16 @@
   <image src="{{commodity.cover}}" style="width:100vw;height:100vw;" />
   <view style="padding:0 20px;box-sizing:border-box;">
     <view style="padding:20px 0;border-bottom:1px solid lightgrey;margin-bottom:15px;">
-      <view style="font-size:16px;font-weight:400">{{commodity.name}}</view>
-      <view style="font-size:24px;font-weight:bold;">{{commodity.price}}</view>
+      <view style="font-size:16px;font-weight:400;margin-bottom:10px;">{{commodity.name}}</view>
+      <view wx:if="{{commodity.discount < 1}}"
+        style="font-size:16px;color:grey;text-decoration:line-through">{{commodity.price}}</view>
+      <view style="font-size:24px;font-weight:bold;">
+        <text 
+          style="margin-right:10px;"
+          wx:if="{{commodity.discount < 1}}"
+          >{{commodity.discount*100}}%</text>
+        <text>{{commodity.price*commodity.discount}}</text>
+      </view>
     </view>
 
     <!-- 图文详情 -->

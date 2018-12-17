@@ -118,6 +118,15 @@ Page({
     }
     count -= 1
     this.setData({count: count})
-  }
+  },
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchCommodity()
+    this.fetchRank()
+    wx.stopPullDownRefresh()
+  },
 
 })

@@ -16,7 +16,7 @@ Page({
   makePrice: function() {
     let price = 0.00
     let checked = this.data.data.filter(item=>item.is_checked)
-    checked.map(item=>price += item.commodity.price * item.count)
+    checked.map(item=>price += item.commodity.price * item.count * item.commodity.discount)
     price = price.toFixed(2)
     this.setData({price: price})
   },
@@ -153,5 +153,14 @@ Page({
       header: {'Authorization': 'Token '+wx.getStorageSync('token')},
       success: res=>self.fetchData()
     })
-  }
+  },
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchData()
+    wx.stopPullDownRefresh()
+  },
+
 })

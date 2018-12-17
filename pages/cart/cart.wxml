@@ -20,7 +20,13 @@
         <view bindtap="onGoCommodity"
           data-id="{{item.commodity.id}}"
           style="font-size:14px;">{{item.commodity.name}}</view>
-        <view style="font-size:16px;font-weight:bold;color:#f44336">{{item.commodity.price}}</view>
+        <view style="font-size:16px;font-weight:bold;color:#f44336">
+          <text 
+            wx:if="{{item.commodity.discount<1}}"
+            style="font-size:14px;"
+            >[{{item.commodity.discount*100}}%] </text>
+          <text>{{item.commodity.price*item.commodity.discount}}</text>
+        </view>
       </view>
 
       <view style="display:flex;align-items:center;justify-content:space-between;">
