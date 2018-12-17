@@ -1,15 +1,55 @@
-<scroll-view>
+<scroll-view wx:if="{{data.length > 0}}" style="margin-top:15px;">
   <view wx:for="{{data}}" wx:key="{{index}}"
-    style="display:flex;padding:15px;box-sizing:border-box;">
-    <image src="{{item.commodity.cover}}" 
+    style="position:relative;display:flex;padding:0 15px;margin-bottom:15px;box-sizing:border-box;">
+    <!--checkbox value="{{item.id}}" 
+      checked="{{item.is_checked}}"
+      style="position:absolute;top:-3px;left:15px;border:none;" /-->
+    <view bindtap="onChangeChecked"
+      data-id="{{item.id}}"
+      data-checked="{{item.is_checked}}"
+      style="position:absolute;top:0;left:15px;background:{{item.is_checked ? 'black' : 'white'}};padding:3px;box-sizing:border-box;">
+    <image
+      src="{{item.is_checked ? '../../images/check-o.svg' : '../../images/check.svg'}}"
+      style="display:block;width:18px;height:18px;" />
+    </view>
+    <image src="{{item.commodity.cover}}"
+      data-id="{{item.commodity.id}}"
       style="min-width:120px;width:120px;height:120px;" />
-    <view style="flex-grow:1;padding-left:15px;">
-      <view style="font-size:14px;">{{item.commodity.name}}</view>
-      <view style="font-size:16px;font-weight:bold;color:#f44336">{{item.commodity.price}}</view>
-      <view>{{item.count}}</view>
+    <view style="flex-grow:1;padding-left:15px;display:flex;flex-direction:column">
+      <view style="flex-grow:1">
+        <view bindtap="onGoCommodity"
+          data-id="{{item.commodity.id}}"
+          style="font-size:14px;">{{item.commodity.name}}</view>
+        <view style="font-size:16px;font-weight:bold;color:#f44336">{{item.commodity.price}}</view>
+      </view>
+
+      <view style="display:flex;align-items:center;justify-content:space-between;">
+        <!-- 数量加减 -->
+        <view style="border:1px solid grey;display:flex;align-items:center;width:80px;font-size:14px;">
+          <view data-id="{{item.id}}" 
+            data-count="{{item.count}}"
+            bindtap="onDecrease"
+            style="width:20px;text-align:center;color:grey">-</view>
+          <view style="color:grey;flex-grow:1;text-align:center;border-left:1px solid grey;border-right:1px solid grey;">{{item.count}}</view>
+          <view style="width:20px;text-align:center;color:grey"
+            data-id="{{item.id}}" 
+            data-count="{{item.count}}"
+            bindtap="onIncrease">+</view>
+        </view>
+
+        <!-- 删除 -->
+        <text bindtap="onDelete" data-id="{{item.id}}"
+          style="color:red;font-size:14px;">x</text>
+      </view>
     </view>
   </view>
 </scroll-view>
+
+<view wx:else
+  style="padding:30px;text-align:center;text-align:center;">
+  <view style="color:lightgrey;">购物车为空</view>
+</view>
+
 <view style="position:fixed;bottom:0;left:0;width:100%;padding:5px 25px;box-sizing:border-box;height:64px;background:black;display:flex;justify-content:space-between;align-items:center;">
   <text style="color:#f44336;">{{price}}</text>
   <text bindtap="onBuy" style="color:#f44336;">去结算</text>
