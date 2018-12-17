@@ -22,5 +22,13 @@ Page({
         content: content
       })
     }})
-  }
+  },
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchData()
+    wx.stopPullDownRefresh()
+  },
 })

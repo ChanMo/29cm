@@ -20,5 +20,15 @@ Page({
         'Authorization': 'Token ' + wx.getStorageSync('token')
       },
       success:res=>this.setData({data: res.data})})
-  }
+  },
+
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchData()
+    wx.stopPullDownRefresh()
+  },
+
 })

@@ -15,6 +15,7 @@
 
   <view style="font-size:14px;color:grey;">
     <view>订单号: {{data.number}}</view>
+    <view>支付金额: {{data.price}}</view>
     <view>下单时间: {{data.created}}</view>
     <view>是否支付: {{data.is_pay ? '是' : '否'}}</view>
     <view>收件人: {{data.consignee}}</view>

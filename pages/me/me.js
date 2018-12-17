@@ -14,5 +14,14 @@ Page({
   fetchLink: function() {
     let url = app.globalData.domain + 'link/USER_LINK/'
     wx.request({url, success:res=>this.setData({link:res.data})})
-  }
+  },
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchLink()
+    wx.stopPullDownRefresh()
+  },
+
 })
