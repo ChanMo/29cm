@@ -28,5 +28,15 @@ Page({
   onGoDetail: function(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({url: '/pages/order/order?id=' + id})
-  }
+  },
+
+
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.fetchData()
+    wx.stopPullDownRefresh()
+  },
+
 })
