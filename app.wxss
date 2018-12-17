@@ -14,3 +14,9 @@
   width: 12px;
   height: 12px;
 }
+
+.icon_medium {
+  width: 16px;
+  height: 16px;
+}
+
