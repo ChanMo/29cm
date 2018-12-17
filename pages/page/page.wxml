@@ -1,0 +1,4 @@
+<scroll-view style="padding:0 10px;box-sizing:border-box;">
+  <view style="font-size:20px;font-weight:bold;color:black;margin:15px 0;text-align:center;">{{data.title}}</view>
+  <rich-text nodes="{{data.content}}" style="margin-bottom:10px;" />
+</scroll-view>
