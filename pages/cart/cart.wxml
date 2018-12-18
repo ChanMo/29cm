@@ -12,20 +12,20 @@
       src="{{item.is_checked ? '../../images/check-o.svg' : '../../images/check.svg'}}"
       style="display:block;width:18px;height:18px;" />
     </view>
-    <image src="{{item.commodity.cover}}"
-      data-id="{{item.commodity.id}}"
+    <image src="{{item.product.cover}}"
+      data-id="{{item.product.id}}"
       style="min-width:120px;width:120px;height:120px;" />
     <view style="flex-grow:1;padding-left:15px;display:flex;flex-direction:column">
       <view style="flex-grow:1">
-        <view bindtap="onGoCommodity"
-          data-id="{{item.commodity.id}}"
-          style="font-size:14px;">{{item.commodity.name}}</view>
+        <view bindtap="onGoproduct"
+          data-id="{{item.product.id}}"
+          style="font-size:14px;">{{item.product.name}}</view>
         <view style="font-size:16px;font-weight:bold;color:#f44336">
           <text 
-            wx:if="{{item.commodity.discount<1}}"
+            wx:if="{{item.product.discount<1}}"
             style="font-size:14px;"
-            >[{{item.commodity.discount*100}}%] </text>
-          <text>{{item.commodity.price*item.commodity.discount}}</text>
+            >[{{item.product.discount*100}}%] </text>
+          <text>{{item.product.price*item.product.discount}}</text>
         </view>
       </view>
 

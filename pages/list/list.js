@@ -19,7 +19,7 @@ Page({
    */
   fetchData: function() {
     wx.showLoading({mask:true})
-    let url = app.globalData.domain + 'commodity'
+    let url = app.globalData.domain + 'product'
     let data = {
       category: this.data.category,
       sort: this.data.sort,

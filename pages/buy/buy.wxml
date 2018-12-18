@@ -1,19 +1,19 @@
 <scroll-view style="padding:20px;box-sizing:border-box;">
   <view style="border-bottom:2px solid black;margin-bottom:20px;">
     <view style="margin-bottom:10px;font-weight:bold">商品</view>
-    <view wx:for="{{commodity}}" wx:key="*this"
-      style="display:flex;justify-content:space-between;margin-bottom:10px;border-bottom:1px dashed lightgrey;padding:10px 0;{{index==commodity.length-1 && 'border-bottom-width:0'}}">
+    <view wx:for="{{product}}" wx:key="*this"
+      style="display:flex;justify-content:space-between;margin-bottom:10px;border-bottom:1px dashed lightgrey;padding:10px 0;{{index==product.length-1 && 'border-bottom-width:0'}}">
       <view style="box-sizing:border-box;padding-right:15px;">
-        <view style="font-size:14px;">{{item.commodity.name}}</view>
+        <view style="font-size:14px;">{{item.product.name}}</view>
         <view style="font-size:14px;">x{{item.count}}</view>
         <view style="color:red;font-size:14px;">
-          <text wx:if="{{item.commodity.discount < 1}}"
-            >[{{item.commodity.discount * 100}}%] </text>
-          <text>{{item.commodity.price * item.commodity.discount}}</text>
+          <text wx:if="{{item.product.discount < 1}}"
+            >[{{item.product.discount * 100}}%] </text>
+          <text>{{item.product.price * item.product.discount}}</text>
         </view>
       </view>
       <image 
-        src="{{item.commodity.cover}}" 
+        src="{{item.product.cover}}" 
         style="width:20vmin;height:20vmin;min-width:20vmin" />
     </view>
   </view>

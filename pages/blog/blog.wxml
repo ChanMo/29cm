@@ -12,11 +12,11 @@
           <image class="icon icon_medium"
             style="margin-right:5px;"
             src="../../images/eye.svg" />
-          <text style="font-size:12px;color:grey;margin-right:10px;">120</text>
+          <text style="font-size:12px;color:grey;margin-right:10px;">{{item.read_count}}</text>
           <image class="icon icon_medium"
             style="margin-right:5px;"
             src="../../images/message-circle.svg" />
-          <text style="font-size:12px;color:grey">20</text>
+          <text style="font-size:12px;color:grey">0</text>
         </view>
         <view style="font-size:14px;color:grey;">{{item.created}}</view>
       </view>

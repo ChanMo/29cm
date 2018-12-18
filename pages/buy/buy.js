@@ -4,7 +4,7 @@ Page({
   data: {
     id: 0, // 商品ID
     count: 1, // 商品数量
-    commodity: [],
+    product: [],
     price: 0.00, // 商品总价格
     is_cart: true, // 是否从购物车
   },
@@ -17,7 +17,7 @@ Page({
         count: parseInt(options.count),
         is_cart: false
       })
-      this.fetchCommodity()
+      this.fetchproduct()
     } else {
       // 从购物车
       this.fetchFromCart()
@@ -27,12 +27,12 @@ Page({
   /**
    * 获取商品详情
    */
-  fetchCommodity: function() {
+  fetchproduct: function() {
     const self = this
-    let url = app.globalData.domain + 'commodity/' + this.data.id + '/'
+    let url = app.globalData.domain + 'product/' + this.data.id + '/'
     wx.request({url, success:res=>{
-      let data = {'commodity':res.data, 'count':self.data.count}
-      self.setData({commodity: [data]})
+      let data = {'product':res.data, 'count':self.data.count}
+      self.setData({product: [data]})
       self.makePrice()
     }})
   },
@@ -47,7 +47,7 @@ Page({
       url: url,
       header: {'Authorization': 'Token '+wx.getStorageSync('token')},
       success: res=>{
-        self.setData({commodity: res.data})
+        self.setData({product: res.data})
         self.makePrice()
       }
     })
@@ -91,7 +91,7 @@ Page({
    */
   makePrice: function() {
     let price = 0.00
-    this.data.commodity.map(item=>price += item.count * item.commodity.price * item.commodity.discount)
+    this.data.product.map(item=>price += item.count * item.product.price * item.product.discount)
     this.setData({price: price.toFixed(2)})
   },
 
@@ -105,9 +105,9 @@ Page({
     }
     wx.showLoading({mask:true})
     let url = app.globalData.domain + 'order/buy'
-    let commodities = []
-    this.data.commodity.map(item=>commodities.push({
-      id: item.commodity.id,
+    let product = []
+    this.data.product.map(item=>product.push({
+      id: item.product.id,
       count: item.count
     }))
     let data = {
@@ -115,7 +115,7 @@ Page({
       mobile: this.data.mobile,
       region: this.data.region,
       street: this.data.street,
-      commodities: commodities,
+      product: product,
       is_cart: this.data.is_cart,
     }
     wx.request({

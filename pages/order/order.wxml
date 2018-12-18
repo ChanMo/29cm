@@ -3,7 +3,7 @@
     <navigator 
       wx:for="{{data.item_set}}" wx:key="*this"
       style="display:flex;padding:5px 0;box-sizing:border-box;"
-      url="/pages/commodity/commodity?id={{item.commodity}}">
+      url="/pages/product/product?id={{item.product}}">
       <image src="{{item.image}}" style="width:30vmin;height:30vmin;min-width:30vmin;" />
       <view style="padding-left:10px;box-sizing:border-box;">
         <view style="font-size:14px;">{{item.name}}</view>

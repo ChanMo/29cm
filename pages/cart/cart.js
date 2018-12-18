@@ -16,7 +16,7 @@ Page({
   makePrice: function() {
     let price = 0.00
     let checked = this.data.data.filter(item=>item.is_checked)
-    checked.map(item=>price += item.commodity.price * item.count * item.commodity.discount)
+    checked.map(item=>price += item.product.price * item.count * item.product.discount)
     price = price.toFixed(2)
     this.setData({price: price})
   },
@@ -50,9 +50,9 @@ Page({
   /**
    * 跳转商品详情
    */
-  onGoCommodity: function(e) {
+  onGoproduct: function(e) {
     let id = e.currentTarget.dataset.id
-    wx.navigateTo({url: '/pages/commodity/commodity?id='+id})
+    wx.navigateTo({url: '/pages/product/product?id='+id})
   },
 
   /**
