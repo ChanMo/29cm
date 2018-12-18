@@ -1,0 +1,15 @@
+.category {
+}
+.category__item {
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 5px;
+  text-align: center;
+  color: grey;
+}
+.category__item:first-child {
+  margin-left: 15px;
+}
+.category__item:last-child {
+  margin-right: 15px;
+}

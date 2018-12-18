@@ -1,0 +1,54 @@
+<scroll-view>
+
+  <!-- 品牌信息 -->
+  <image src="{{data.banner}}" 
+    mode="aspectFill"
+    style="width:100%;height:40vw;" />
+  <view style="margin-top:-25px;margin-bottom:15px;padding:0 15px;box-sizing:border-box;">
+    <view style="font-size:30px;font-weight:bold;text-shadow:2px 2px 4px lightgrey;">{{data.name}}</view>
+    <view style="font-size:14px;color:grey;">{{data.description}}</view>
+  </view>
+
+  <!-- 活动信息banner -->
+  <image src="https://aecpm.alicdn.com/simba/img/TB1V7g3GVXXXXbKXVXXSutbFXXX.jpg" style="width:100%;margin-bottom:10px;" mode="widthFix" />
+
+  <!-- 商品分诶 -->
+  <view style="margin-bottom:10px;">
+    <view style="text-align:center;font-weight:400;margin-bottom:15px;color:red;">- 分类查看 -</view>
+    <scroll-view scroll-x style="white-space:nowrap;">
+      <navigator wx:for="{{category}}" wx:key="*this"
+        url="/pages/product/product?category={{item.id}}" 
+        class="category__item">
+        <image src="{{item.image}}" 
+          style="width:54px;height:54px;filter:grayscale(60%)" />
+        <view>{{item.name}}</view>
+      </navigator>
+    </scroll-view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view>
+    <view style="text-align:center;font-weight:400;margin-bottom:15px;color:red;">- 推荐商品 -</view>
+    <view>
+      <navigator
+        style="width:50%;min-width:50%;float:left;"
+        wx:for="{{product}}" wx:key="*this"
+        url="/pages/product/product?id={{item.id}}">
+        <image lazy-load="true"
+          src="{{item.cover}}" 
+          style="width:50vw;height:50vw;" />
+        <view style="padding:10px;box-sizing:border-box;font-size:14px;">
+          <view style="line-height:18px;min-height:36px;height:36px;overflow:hidden;">{{item.name}}</view>
+          <view style="color:red;font-size:18px;font-weight:bold;">
+            <text wx:if="{{item.discount < 1}}"
+              style="font-size:16px;"
+              >[{{item.discount * 100}}%] </text>
+            <text>{{item.price}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <navigator url="/pages/list/list?brand={{id}}"
+      style="text-align:center;padding:20px;box-sizing:border-box;font-size:16px;">查看全部</navigator>
+  </view>
+</scroll-view>
