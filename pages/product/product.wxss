@@ -1,0 +1,11 @@
+/* pages/product/product.wxss */
+.rank__item {
+  position: relative;
+  margin-right: 10px;
+}
+.rank__item:first-child {
+  margin-left: 20px;
+}
+.rank__item:last-child {
+  margin-right: 20px;
+}
