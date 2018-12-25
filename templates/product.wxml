@@ -1,0 +1,33 @@
+<template name="product">
+  <navigator
+    wx:if="{{!horizontal}}"
+    style="width:{{100/col}}vw;"
+    url="/pages/product/product?id={{data.id}}">
+    <image lazy-load="true"
+      src="{{data.cover}}" 
+      style="width:{{100/col}}vw;height:{{100/col}}vw;" />
+    <view style="padding:10px;box-sizing:border-box;font-size:14px;">
+      <view style="line-height:18px;min-height:36px;height:36px;overflow:hidden;">{{data.name}}</view>
+      <view style="color:red;font-size:18px;font-weight:bold;">
+        <text wx:if="{{data.discount < 1}}"
+          style="font-size:16px;"
+          >[{{data.discount * 100}}%] </text>
+        <text>{{data.price}}</text>
+      </view>
+    </view>
+  </navigator>
+  <navigator
+    wx:else
+    style="display:flex;"
+    url="/pages/product/product?id={{data.id}}">
+    <image src="{{data.cover}}" lazy-load="true"
+      style="width:64px;min-width:64px;height:64px;" />
+    <view style="flex-grow:1;padding-left:10px;box-sizing:border-box;">
+      <view style="font-size:14px;">{{data.name}}</view>
+      <view style="font-size:14px;font-weight:bold;color:red;">
+        <text wx:if="{{data.discount < 1}}">[{{data.discount*100}}%]</text>
+        <text>{{data.price*data.discount}}</text>
+      </view>
+    </view>
+  </navigator>
+</template>
