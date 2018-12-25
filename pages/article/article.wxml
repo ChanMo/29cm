@@ -1,5 +1,16 @@
- <scroll-view style="padding:0 15px;box-sizing:border-box;">
-  <view style="margin:15px 0 5px;font-size:20px;font-weight:bold;">{{data.title}}</view>
-  <view style="font-size:14px;color:grey;margin-bottom:10px;">{{data.created}}</view>
-  <rich-text nodes="{{content}}" style="margin-bottom:15px;"></rich-text>
+<import src="/templates/product.wxml" />
+
+<scroll-view>
+  <view style="padding:0 15px;box-sizing:border-box;margin-bottom:20px;">
+    <view style="margin:15px 0 5px;font-size:20px;font-weight:bold;">{{data.title}}</view>
+    <view style="font-size:14px;color:grey;margin-bottom:10px;">{{data.created}}</view>
+    <rich-text nodes="{{content}}" style="margin-bottom:15px;"></rich-text>
+  </view>
+
+  <!-- 商品 -->
+  <view style="display:flex;flex-wrap:wrap">
+    <block wx:for="{{data.products}}" wx:key="*this">
+      <template is="product" data="{{data:item, col:3}}" />
+    </block>
+  </view>
 </scroll-view>
