@@ -7,13 +7,24 @@ Page({
     banner: [],
     product: [],
     discount: [], // 优惠商品
-    category: [] // 商品分类
+    category: [], // 商品分类
+    blog: null, // 今日文章
   },
+
   onLoad: function () {
     this.fetchBanner()
     this.fetchproduct()
     this.fetchDiscount()
     this.fetchCategory()
+    this.fetchBlog()
+  },
+
+  /**
+   * 获取blog
+   */
+  fetchBlog: function() {
+    let url = app.globalData.domain + 'blog?limit=1'
+    wx.request({url, success:res=>this.setData({blog: res.data.results[0]})})
   },
 
   /**

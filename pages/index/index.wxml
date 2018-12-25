@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="/templates/product.wxml" />
 <scroll-view>
 
   <!-- banner -->
@@ -12,7 +13,7 @@
           <image src="{{item.image}}" style="width:100%;height:450px;" />
           <view style="position:absolute;bottom:20%;left:50%;transform:translate(-50%, 0);">
             <view style="font-size:40px;color:white;">{{item.title}}</view>
-            <view style="text-align:center;font-size:24px;color:rgba(255,255,255,0.8)">{{item.subtitle}}</view>
+            <view style="text-align:center;font-size:20px;color:rgba(255,255,255,0.8)">{{item.subtitle}}</view>
           </view>
         </navigator>
       </swiper-item>
@@ -20,20 +21,35 @@
   </swiper>
 
   <!-- today product -->
-  <navigator style="padding-left:50px;box-sizing:border-box;margin-bottom:40px;position:relative;" url="/pages/product/product">
-    <view style="position:absolute;left:0;top:120px;width:40px;height:4px;background:black;z-index:99"></view>
-    <image src="{{product[0].image}}" style="width:300px;height:300px" />
-    <view style="font-size:30px;">{{product[0].name}}</view>
-    <view style="font-size:16px;">{{product[0].desc}}</view>
-    <view style="border-top:1px solid lightgrey;display:flex;margin-top:10px;padding-top:10px;">
-      <image src="{{product[0].image}}" style="width:64px;height:64px;" />
-      <view style="padding-left:10px;">
-        <view style="font-size:14px;color:black;">sony x5000</view>
-        <view style="font-size:14px;color:grey;">35-55mm, 1.8</view>
-        <view style="font-size:14px;color:red">4500.00</view>
-      </view>
+  <view
+    style="padding-left:50px;box-sizing:border-box;margin-bottom:40px;position:relative;" url="/pages/product/product">
+    <view
+      style="position:absolute;left:0;top:15px;width:40px;height:4px;background:black;z-index:99"></view>
+    <navigator url="/pages/article/article?id={{blog.id}}">
+      <image src="{{blog.cover}}" 
+        mode="widthFix"
+        style="width:100%;" />
+    </navigator>
+    <navigator
+      url="/pages/article/article?id={{blog.id}}"
+      style="font-size:18px;margin:0 10px 10px 0;">{{blog.title}}</navigator>
+
+    <!-- 文章商品 -->
+    <view>
+      <block wx:for="{{blog.products}}" wx:key="*this">
+        <view style="display:flex;align-items:center;border-top:1px solid lightgrey;">
+          <view style="flex-grow:1;padding:15px 5px 15px 0;box-sizing:border-box;border-right:1px solid lightgrey;">
+            <template is="product" 
+              data="{{data:item, horizontal:true}}" />
+          </view>
+          <view style="width:20vw;min-width:20vw;text-align:center;">
+            <image src="/images/heart-o.svg" class="icon icon_medium" />
+            <view style="font-size:12px;">{{item.collect_count}}</view>
+          </view>
+        </view>
+      </block>
     </view>
-  </navigator>
+  </view>
 
   <!-- 优惠商品 -->
   <view style="padding-left:50px;box-sizing:border-box;position:relative;margin-bottom:15px;">
