@@ -1,12 +1,13 @@
 <scroll-view>
-  <navigator wx:for="{{data}}" wx:key="{{index}}" url="/pages/article/article?id={{item.id}}">
+  <navigator wx:for="{{data}}" wx:key="{{index}}" url="/pages/article/article?id={{item.id}}" class="blog">
     <image 
       lazy-load="true"
       src="{{item.cover}}" 
       mode="widthFix"
       style="width:100%;" />
     <view style="padding:10px 20px 20px;box-sizing:border-box;">
-      <view style="margin-bottom:5px;font-weight:bold;font-size:18px;">{{item.title}}</view>
+      <view class="title">{{item.title}}</view>
+      <view class="description">{{item.description}}</view>
       <view style="display:flex;align-items:center;justify-content:space-between;">
         <view style="display:flex;align-items:center;">
           <image class="icon icon_medium"

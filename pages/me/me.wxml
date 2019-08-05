@@ -7,26 +7,30 @@
   </view>
 
   <view  style="padding:0 25px;box-sizing:border-box;">
-    <view style="border-bottom:3px solid black;padding:15px 0;">
-      <view style="font-size:22px;font-weight:bold;margin-bottom:10px;">订单</view>
+    <view class="section">
+      <view class="title">订单</view>
       <view>
         <navigator url="/pages/orders/orders" 
-          style="font-size:13px;">待付款</navigator>
+          class="link">待付款</navigator>
         <navigator url="/pages/orders/orders" 
-          style="font-size:13px;">待发货</navigator>
+          class="link">待发货</navigator>
         <navigator url="/pages/orders/orders" 
-          style="font-size:13px;">全部</navigator>
+          class="link">全部</navigator>
       </view>
     </view>
-    <view style="border-bottom:3px solid black;padding:15px 0">
-      <view style="font-size:22px;font-weight:bold;margin-bottom:10px;">其他</view>
-      <navigator wx:for="{{link}}" wx:key="*this"
-        url="{{item.path}}"
-        style="font-size:13px;">{{item.title}}</navigator>
+    <view class="section">
+      <view class="title">我的收藏</view>
+        <navigator url="/pages/index/index" 
+          class="link">店铺收藏</navigator>
+        <navigator url="/pages/index/index" 
+          class="link">商品收藏</navigator>
     </view>
-    <view style="padding:15px 0;">
-      <view style="font-size:13px;">电话: 15550005746</view>
-      <view style="font-size:13px;">微信: orange910220</view>
+    <view class="section_last">
+      <view class="title">客户服务</view>
+        <button plain open-type="contact"
+          class="link">客服</button>
+        <navigator url="/pages/index/index" 
+          class="link">关于</navigator>
     </view>
   </view>
 </scroll-view>

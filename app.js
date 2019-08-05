@@ -43,6 +43,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    domain: 'http://maybe.findchen.com/'
+    domain: 'https://life.mandiankeji.com/'
   }
 })

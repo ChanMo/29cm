@@ -1,10 +1,10 @@
 <import src="/templates/product.wxml" />
 
 <scroll-view>
-  <view style="padding:0 15px;box-sizing:border-box;margin-bottom:20px;">
-    <view style="margin:15px 0 5px;font-size:20px;font-weight:bold;">{{data.title}}</view>
-    <view style="font-size:14px;color:grey;margin-bottom:10px;">{{data.created}}</view>
-    <rich-text nodes="{{content}}" style="margin-bottom:15px;"></rich-text>
+  <view style="padding:0 30rpx;box-sizing:border-box;margin-bottom:40rpx;">
+    <view class="title">{{data.title}}</view>
+    <view class="datetime">{{data.created}}</view>
+    <rich-text nodes="{{content}}" class="content"></rich-text>
   </view>
 
   <!-- 商品 -->

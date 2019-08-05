@@ -1,1 +1,18 @@
 /* pages/article/article.wxss */
+
+.title {
+  margin: 40rpx 0;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.datetime {
+  font-size: 28rpx;
+  color: grey;
+  margin-bottom: 30rpx;
+}
+
+.content {
+  line-height: 40rpx;
+  margin-bottom: 40rpx;
+}

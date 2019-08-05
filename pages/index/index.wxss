@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +19,37 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.title {
+  font-size: 48rpx;
+  color: black;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.section {
+  padding-left: 80rpx;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 50rpx;
+}
+
+.blog__title {
+  font-weight: bold;
+  font-size: 44rpx;
+  margin: 20rpx 0;
+}
+
+.blog__description {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  height: 120rpx;
+  overflow: hidden;
+  color: rgba(32, 32, 32, 1);
+  margin-bottom: 40rpx;
+}
+
+.category {
+  display:inline-block;margin:0 15rpx 15rpx 0;line-height:14ppx;font-size:30rpx;
 }

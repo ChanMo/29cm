@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/product/product",
     "pages/brand/brand",
@@ -13,34 +13,43 @@
     "pages/order/order",
     "pages/page/page"
   ],
-  "window":{
+  "window": {
     "backgroundColor": "#000000",
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "DOYOU.LIVE",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "tabBar": {
-      "color": "#616161",
-      "selectedColor": "#000000",
-      "list": [
-          {
-              "pagePath": "pages/index/index",
-              "text": "首页"
-          }, 
-          {
-              "pagePath": "pages/blog/blog",
-              "text": "精选"
-          },
-          {
-              "pagePath": "pages/cart/cart",
-              "text": "购物车"
-          },
-          {
-              "pagePath": "pages/me/me",
-              "text": "我的"
-          }
-      ]
-  }
+    "color": "#616161",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar-home.png",
+        "selectedIconPath": "/images/tabbar-home-active.png"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "精选",
+        "iconPath": "/images/tabbar-blog.png",
+        "selectedIconPath": "/images/tabbar-blog-active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "/images/tabbar-cart.png",
+        "selectedIconPath": "/images/tabbar-cart-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "/images/tabbar-user.png",
+        "selectedIconPath": "/images/tabbar-user-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

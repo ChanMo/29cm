@@ -1,1 +1,21 @@
 /* pages/me/me.wxss */
+.title {
+  font-size:42rpx;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.link {
+  padding: 0;
+  border-width: 0 !important;
+  text-align: left;
+  font-size:30rpx;
+  line-height: 40rpx;
+  color: black !important;
+}
+.section {
+  border-bottom:5rpx solid black;
+  padding:40rpx 0;
+}
+.section_last {
+  padding:40rpx 0;
+}

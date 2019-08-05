@@ -13,7 +13,6 @@ Page({
 
   onLoad: function () {
     this.fetchBanner()
-    this.fetchproduct()
     this.fetchDiscount()
     this.fetchCategory()
     this.fetchBlog()
@@ -33,18 +32,6 @@ Page({
   fetchBanner: function() {
     let url = app.globalData.domain + 'link/HOME_BANNER_S/'
     wx.request({url, success: (res)=>this.setData({banner: res.data})})
-  },
-
-  /**
-   * 获取推荐商品
-   */
-  fetchproduct: function() {
-    let url = app.globalData.domain + 'product/'
-    //wx.request({url, success:(res)=>this.setData({product:res.data})})
-    const data = [
-      {image:'https://gd1.alicdn.com/imgextra/i1/798012255/TB28st9jlHH8KJjy0FbXXcqlpXa_!!798012255.jpg',name:'Sony x5000',price:4500.00,desc:'Sony x5000 是一款入门微单相机'}
-    ]
-    this.setData({product: data})
   },
 
   /**
@@ -68,7 +55,6 @@ Page({
    */
   onPullDownRefresh: function() {
     this.fetchBanner()
-    this.fetchproduct()
     this.fetchDiscount()
     this.fetchCategory()
     wx.stopPullDownRefresh()

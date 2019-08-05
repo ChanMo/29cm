@@ -1,1 +1,15 @@
 /* pages/blog/blog.wxss */
+.description {
+  max-height: 160rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.title {
+  margin: 40rpx 0;
+  font-size: 44rpx;
+  font-weight: bold;
+}
+.blog {
+  margin-bottom: 40rpx;
+}
